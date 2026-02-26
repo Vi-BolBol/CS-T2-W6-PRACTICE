@@ -1,4 +1,9 @@
-export default function Scores({courseName, courseResults}){
+function Warning(score){
+    return score < 50 ? "warning" : "";
+}
+
+
+function Scores({courseName, courseResults}){
     return(
         <>
             <div className="scores">
@@ -17,7 +22,7 @@ export default function Scores({courseName, courseResults}){
                         <tr key={i}>
                             <td>{result.firstName}</td>
                             <td>{result.lastName}</td>
-                            <td>{result.score}</td>
+                            <td className={Warning(result.score)}>{result.score}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -26,3 +31,5 @@ export default function Scores({courseName, courseResults}){
         </>
     );
 }
+
+export default Scores;
