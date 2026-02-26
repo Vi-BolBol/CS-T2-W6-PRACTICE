@@ -1,32 +1,36 @@
+import Statistic from "./Statistic"
+
 function Warning(score){
     return score < 50 ? "warning" : "";
 }
 
 
 function Scores({courseName, courseResults}){
+ 
     return(
         <>
             <div className="scores">
-            <h1>{courseName}</h1>
+                <h1>{courseName}</h1>
 
-            <table>
-                <thead>
-                  <tr>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Score</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    {courseResults.map((result, i) =>(
-                        <tr key={i}>
-                            <td>{result.firstName}</td>
-                            <td>{result.lastName}</td>
-                            <td className={Warning(result.score)}>{result.score}</td>
-                        </tr>
-                    ))}
-                </tbody>
-              </table>
+                <table>
+                    <thead>
+                      <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Score</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {courseResults.map((result, i) =>(
+                            <tr key={i}>
+                                <td>{result.firstName}</td>
+                                <td>{result.lastName}</td>
+                                <td className={Warning(result.score)}>{result.score}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                <Statistic courseResults={courseResults}/>
             </div>
         </>
     );
